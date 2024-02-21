@@ -1,7 +1,16 @@
 const express = require('express');
 const app = express();
 const UserModel = require('../src/models/user.model');
+
 app.use(express.json());
+
+app.use((req, res, next) => {
+    console.log(`Request Type: ${req.method}`);
+    console.log(`Content Type: ${req.headers["content-type"]}`);
+    console.log(`Date ${new Date()}`);
+
+    next();
+});
 
 app.post('/users', async (req, res) => {
 
