@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+            <div class="content">
+                <% if(users.length> 0) { %> <!-- Verifica se há usuários para exibir -->
+                    <% users.forEach(user=> { %> <!-- Itera sobre cada usuário na lista -->
+                        <h3 class="title">
+                            <%= user.firstName %> <!-- Exibe o primeiro nome do usuário -->
+                                <%= user.lastName %> <!-- Exibe o sobrenome do usuário -->
+                        </h3>
+
+                        <p>
+                            <%= user.email %> <!-- Exibe o email do usuário -->
+                        </p>
+                        <% }) %> <!-- Fecha o loop forEach -->
+                            <% } else { %> <!-- Se não houver usuários -->
+                                <p>Não há usuários para exibir...</p> <!-- Exibe uma mensagem de que não há usuários -->
+                                <% } %> <!-- Fecha a condição if -->
+            </div>
+
+
+    </body>
+
+</html>
